@@ -332,7 +332,7 @@ void flb_test_filter_parser_handle_time_key_with_timezone_1()
     TEST_CHECK(ret == 0);
 
     /* Ingest data */
-    p = "[1448403340, {\"@timestamp\":\"2017-11-01T22:25:21.648+02:00\", \"message\":\"This is an example with time\"}]";
+    p = "[1448403340, {\"@timestamp\":\"2017-11-01T23:25:21,648+01:00\", \"message\":\"This is an example with timezone\"}]";
     bytes = flb_lib_push(ctx, in_ffd, p, strlen(p));
     TEST_CHECK(bytes == strlen(p));
 
@@ -412,7 +412,7 @@ void flb_test_filter_parser_handle_time_key_with_timezone_2()
     TEST_CHECK(ret == 0);
 
     /* Ingest data */
-    p = "[1448403340, {\"@timestamp\":\"2017-11-01T22:25:21.648+0200\", \"message\":\"This is an example with time\"}]";
+    p = "[1448403340, {\"@timestamp\":\"2017-11-01T23:25:21,648+0100\", \"message\":\"This is an example with timezone\"}]";
     bytes = flb_lib_push(ctx, in_ffd, p, strlen(p));
     TEST_CHECK(bytes == strlen(p));
 
